@@ -88,8 +88,8 @@ class AlumniController extends Controller
     function update_status(Request $request, $id)
 	{   
         $alumni = IsiAlumniModel::select('id')->findOrFail($id);
-        $q = $alumni->update(['status' => $request->input('status')]);
-        return response()->json($q);  
+        $alumni->update(['status' => $request->input('status')]);
+        return response()->json(['status' => true, 'message' => 'Status Berhasil Diupdate']);
     }
 
     function hapus_penelusuran_alumni($id)
