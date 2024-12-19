@@ -139,7 +139,7 @@ class UserController extends Controller
         ]);
         
         $user = UserModel::select('id_user')->findOrFail($id);
-        $user->update($request->all());
+        $user->update($validated);
         return redirect()->back()->with(['success' => 'Data Berhasil Diupdate!']);
     }
 
